@@ -1,5 +1,7 @@
 .exercism
 .config
+target 
+.lein-failures
 
 *#
 *.hi
