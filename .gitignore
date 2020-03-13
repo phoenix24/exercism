@@ -1,6 +1,7 @@
 .exercism
 .config
 
+*#
 *.hi
 *.o
 *.swp
