@@ -1,10 +1,7 @@
-(ns phone-number)
+(ns phone-number
+    (:require [clojure.string :as str]))
 
 (def invalid-number "0000000000")
-
-(defn clean [number]
-  (apply str
-    (filter (fn [x] (Character/isDigit x)) number)))
 
 (defn validate [number] 
   (let [ll-number (count number)]
@@ -14,11 +11,12 @@
        :else invalid-number)))
 
 (defn number [num-string]
-  (validate 
-     (clean num-string)))
+  (let [cl-number (str/join (re-seq #"\d" num-string))]
+    (validate cl-number)))
 
 (defn area-code [num-string] 
-  (subs (number num-string) 0 3))
+  (let [cl-number (number num-string)]
+    (subs cl-number 0 3)))
 
 (defn pretty-print [num-string] 
    (let [cl-number (number num-string)
