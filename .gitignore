@@ -3,6 +3,8 @@
 target 
 .lein-failures
 
+__pycache__
+
 *#
 *.hi
 *.o
