@@ -8,8 +8,6 @@
     (throw (Exception. "throwing exception invalid nucleotide"))))
 
 (defn nucleotide-counts [strand]
-  (let [a (count-of-nucleotide-in-strand \A strand)
-        t (count-of-nucleotide-in-strand \T strand)
-	c (count-of-nucleotide-in-strand \C strand)
-	g (count-of-nucleotide-in-strand \G strand)]
-	{\A a \T t \C c \G g}))
+   (merge {\A 0 \T 0 \C 0 \G 0}
+         (frequencies strand)))
+
