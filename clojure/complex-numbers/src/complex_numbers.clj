@@ -1,10 +1,8 @@
 (ns complex-numbers)
 
-(defn real [[a b]] 
-  a)
+(def real first)
 
-(defn imaginary [[a b]] 
-  b)
+(def imaginary second)
 
 (defn abs [[a b]] 
    (Math/sqrt (+ (* a a) (* b b))))
@@ -12,15 +10,9 @@
 (defn conjugate [[a b]] 
   [a (* -1 b)])
 
-(defn add [[a b] [c d]] 
-  (let [real (+ a c) 
-        imag (+ b d)]
-	[real imag]))
+(def add (partial map +))
 
-(defn sub [[a b] [c d]] 
-  (let [real (- a c) 
-        imag (- b d)]
-	[real imag]))
+(def sub (partial map -))
 
 (defn mul [[a b] [c d]] 
   (let [real (- (* a c) (* b d)) 
