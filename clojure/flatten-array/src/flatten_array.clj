@@ -1,5 +1,8 @@
 (ns flatten-array)
 
-(defn flatten [arr] ;; <- arglist goes here
-  ;; your code goes here
-)
+(defn flatten [[a & rr]] 
+   (cond
+      (nil? a) []
+      (vector? a) (concat (flatten a) (flatten rr))
+      :else (concat [a] (flatten rr))))
+
