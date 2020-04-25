@@ -2,6 +2,8 @@
 .config
 target 
 .lein-failures
+.gradle
+build
 
 __pycache__
 
